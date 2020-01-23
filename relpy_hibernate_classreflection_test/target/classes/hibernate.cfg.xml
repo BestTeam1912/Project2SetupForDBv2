@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        <property name="hibernate.connection.username">java</property>
+        <property name="hibernate.connection.password">java</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- Hibernate mapping to data definition lang -->
+        <!-- create make tables. create-drop destroy existing table & recreate &
+        	destroy when factory destroyed. Make sure tables work well when developing -->
+        <!-- update - update existing tables does not create table -->
+        <property name="hbm2ddl.auto">create</property>
+        <!-- <mapping class="helloHibernate.pojo.Laptop"/>
+        <mapping class="helloHibernate.pojo.Customer"/> 
+        <mapping class="helloHibernate.pojo.Item"/>
+        <mapping class="helloHibernate.pojo.Orders"/> -->
+        <mapping class="hibernate_classreflection_test.pojo.ActiveUser"/>
+        <mapping class="hibernate_classreflection_test.pojo.User"/>
+        <mapping class="hibernate_classreflection_test.pojo.Comment"/>
+        <mapping class="hibernate_classreflection_test.pojo.Thread"/>
+        <mapping class="hibernate_classreflection_test.pojo.Community"/>
+    </session-factory>
+</hibernate-configuration>
