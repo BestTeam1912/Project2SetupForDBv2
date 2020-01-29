@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import  hibernate_classreflection_test.main.UserType;
+
 @Entity
 @Table(name = "p2_user_tbl")
 public class User {
@@ -19,16 +21,16 @@ public class User {
 	private long id;
 	private String username;
 	private String password;
-	private Enum userType;
+	private UserType userType;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private List<ActiveUser> activeUserList;
 	private Date dateCreated;
 	public long getId() {
 		return id;
 	}
-//	public void setId(long id) {
-//		this.id = id;
-//	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getUsername() {
 		return username;
 	}
@@ -41,10 +43,10 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Enum getUserType() {
+	public UserType getUserType() {
 		return userType;
 	}
-	public void setUserType(Enum userType) {
+	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
 	public List<ActiveUser> getActiveUserList() {
@@ -56,9 +58,23 @@ public class User {
 	public Date getDateCreated() {
 		return dateCreated;
 	}
-//	public void setDateCreated(Date dateCreated) {
-//		this.dateCreated = dateCreated;
-//	}
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	
+	public User(long id, String username, String password, UserType userType, List<ActiveUser> activeUserList,
+			Date dateCreated) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.userType = userType;
+		this.activeUserList = activeUserList;
+		this.dateCreated = dateCreated;
+	}
+	public User() {
+		super();
+	}
 	
 	
 }

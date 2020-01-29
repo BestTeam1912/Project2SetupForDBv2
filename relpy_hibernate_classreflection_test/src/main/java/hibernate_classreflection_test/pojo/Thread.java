@@ -33,9 +33,9 @@ public class Thread {
 	public long getId() {
 		return id;
 	}
-//	public void setId(long id) {
-//		this.id = id;
-//	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -69,7 +69,16 @@ public class Thread {
 	public Date getDateCreated() {
 		return dateCreated;
 	}
-//	public void setDateCreated(Date dateCreated) {
-//		this.dateCreated = dateCreated;
-//	}	
+	public void setDateCreated(Date dateCreated) {
+		this.dateCreated = dateCreated;
+	}
+	public Thread(String title, String description, List<ActiveUser> activeUserList) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.activeUserList = activeUserList;
+	}
+	public Thread() {
+		super();
+	}
 }
